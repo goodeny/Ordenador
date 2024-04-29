@@ -3,21 +3,18 @@ import mysql.connector
 class Database:
     def __init__(self):
         self.connection = None
-    
-    # Connect no servidor localhost com o nome do banco de dados Ordenador
+
     def Connect(self):
         try:
             self.connection = mysql.connector.connect(
                 host="localhost",
                 user="root",
-                password="",
+                password="root",
                 database="Ordenador"
             )
-            print("Conexão bem-sucedida!")
         except mysql.connector.Error as e:
             print(f"Erro ao conectar ao MySQL: {e}")
 
-    # Obter os 5 últimos itens da coluna size dentro da tabela Data
     def getSize(self):
         if self.connection:
             try:
@@ -33,7 +30,6 @@ class Database:
             print("Conexão não estabelecida.")
             return None
 
-    # Obter os 5 últimos itens da coluna time dentro da tabela Data
     def getTime(self):
         if self.connection:
             try:

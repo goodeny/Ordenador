@@ -1,4 +1,5 @@
 import os
 os.system('pip install -r requirements.txt')
-from program import Program
-Program()
+from interface import Interface
+interface = Interface()
+interface.window.mainloop()

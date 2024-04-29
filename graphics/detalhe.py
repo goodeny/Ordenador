@@ -11,6 +11,3 @@ class Detalhe:
         self.db = Database()
         self.db.Connect()
         return self.db.separete_data()[id]
-    
-Detalhe()
-
