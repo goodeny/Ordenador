@@ -1,4 +1,5 @@
 import mysql.connector
+import jsonconfig as jc
 
 class Database:
     def __init__(self):
@@ -9,7 +10,7 @@ class Database:
             self.connection = mysql.connector.connect(
                 host="localhost",
                 user="root",
-                password="root",
+                password=f"{jc.getPassword()}",
                 database="Ordenador"
             )
         except mysql.connector.Error as e:
