@@ -20,7 +20,7 @@ class Program:
         d_time = []
         d_size = []
         for i in data:
-            d_time.append(i[1])
+            d_time.append(str(i[1]))
             d_size.append(i[2])
 
         time = d_time
