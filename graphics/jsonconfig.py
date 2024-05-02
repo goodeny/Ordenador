@@ -1,3 +1,4 @@
+from configpath import pathJson
 import json
 import getpass
 
@@ -9,13 +10,13 @@ def start():
         setPassword(a)
 
 def getPassword():
-    with open('config.json', 'r') as file:
+    with open(pathJson(), 'r') as file:
         data = json.load(file)
     return data.get('bd_password')
 
 def setPassword(new_password):
-    with open('config.json', 'r') as file:
+    with open(pathJson(), 'r') as file:
         data = json.load(file)
     data['bd_password'] = new_password
-    with open('config.json', 'w') as file:
+    with open(pathJson(), 'w') as file:
         json.dump(data, file)

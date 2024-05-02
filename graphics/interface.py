@@ -3,10 +3,12 @@ from repository import Database
 from detalhe import Detalhe
 from plot import Program
 from PIL import Image
+from configpath import uploadImage
 import threading
 import customtkinter
 import threading
 import time
+import os
 
 class Interface:
     def __init__(self):
@@ -47,15 +49,17 @@ class Interface:
         self.my_frame.pack()
 
     def create_cards(self):
-        my_image = customtkinter.CTkImage(light_image=Image.open('assets/Rectangle 2.png'),
-        dark_image=Image.open('assets/Rectangle 2.png'),
+        
+
+        my_image = customtkinter.CTkImage(light_image=Image.open(uploadImage('Rectangle 2.png')),
+        dark_image=Image.open(uploadImage('Rectangle 2.png')),
         size=(350,70)) # WidthxHeight
-        self.background_card = PhotoImage(file='assets/Rectangle 2.png')
-        self.backgorund_button = PhotoImage(file='assets/Group 1.png')
+        self.background_card = PhotoImage(file=uploadImage('Rectangle 2.png'))
+        self.backgorund_button = PhotoImage(file=uploadImage('Group 1.png'))
         self.lists = len(self.repository.separete_data())
         #print(len(self.repository.separete_data()))
         for i in range(0, self.lists):
-            self.background_card = PhotoImage(file='assets/Rectangle 2.png')
+            self.background_card = PhotoImage(file=uploadImage('Rectangle 2.png'))
             self.labelgeral = customtkinter.CTkLabel(self.my_frame, text="", image=my_image, bg_color='#1f1b30')
             self.labelgeral.pack(pady=10, padx=0)
             self.button = Button(self.labelgeral, 
