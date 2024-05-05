@@ -11,11 +11,11 @@ namespace Ordenador
         public void Execute(int[] array)
         {
 
-            QuickSortFunction(array, 0, array.Length - 1);
-            /*foreach (int i in QuickSortFunction(array, 0, array.Length - 1))
+            //QuickSortFunction(array, 0, array.Length - 1);
+            foreach (int i in QuickSortFunction(array, 0, array.Length - 1))
             {
                 Console.WriteLine(i);
-            }*/
+            }
         }
 
         public int[] QuickSortFunction(int[] array, int leftIndex, int rightIndex)

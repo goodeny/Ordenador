@@ -42,8 +42,20 @@ namespace Ordenador
             } catch (MySql.Data.MySqlClient.MySqlException ex)
             {
                 Console.WriteLine(ex.Message);
+            }           
+        }
+
+        public void InsertData2(string name, int size, string time)
+        {
+            try
+            {
+                string query = $"insert into Data2 (name, size, time) values ('{name}', {size}, '{time}')";
+                Connect(query).Close();
             }
-            
+            catch (MySql.Data.MySqlClient.MySqlException ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
         }
     }
 }

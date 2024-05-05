@@ -10,11 +10,11 @@ namespace Ordenador
     {
         public void Execute(int[] array)
         {
-            ShellSortFunction(array, array.Length, string.Empty);
-            /*foreach (int i in ShellSortFunction(array, array.Length, string.Empty))
+            //ShellSortFunction(array, array.Length, string.Empty);
+            foreach (int i in ShellSortFunction(array, array.Length, string.Empty))
             {
                 Console.WriteLine(i);
-            }*/
+            }
         }
 
         public int[] ShellSortFunction(int[] array, int size, string arrayName)

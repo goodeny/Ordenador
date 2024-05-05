@@ -10,11 +10,11 @@ namespace Ordenador
     {
         public void Execute(int[] array)
         {
-            MargeSortFunction(array, 0, (0 + array.Length - 1) / 2, array.Length - 1);
-            /*foreach (int i in MargeSortFunction(array, 0, (0 + array.Length -1)/2 ,array.Length - 1))
+            //MargeSortFunction(array, 0, (0 + array.Length - 1) / 2, array.Length - 1);
+            foreach (int i in MargeSortFunction(array, 0, (0 + array.Length -1)/2 ,array.Length - 1))
             {
                 Console.WriteLine(i);
-            }*/
+            }
         }
 
         public int[] MargeSortFunction(int[] array, int left, int middle, int right)

@@ -10,11 +10,11 @@ namespace Ordenador
     {
         public void Execute(int[] array)
         {
-            CountingSortFunction(array);
-            /*foreach (int i in CountingSortFunction(array))
+            //CountingSortFunction(array);
+            foreach (int i in CountingSortFunction(array))
             {
                 Console.WriteLine(i);
-            }*/
+            }
         }
         public int[] CountingSortFunction(int[] array)
         {

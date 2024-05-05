@@ -17,7 +17,7 @@ namespace Ordenador
             Program program = new Program();
       
             int[] sizes = { 256, 512, 1024, 2048, 5096 };
-
+            
             foreach (int sizex in sizes)
             {
                 stopWatch.Start();
@@ -27,10 +27,69 @@ namespace Ordenador
                 program.ExecuteMargeSort(sizex);
                 program.ExecuteShellSort(sizex); //256
                 stopWatch.Stop();
+                TimeSpan tsTotal = stopWatch.Elapsed;
+                string elapsedTimeTotal = String.Format("{0:00}:{1:00}:{2:00}:{3:00}", tsTotal.Hours, tsTotal.Minutes, tsTotal.Seconds, tsTotal.Milliseconds / 10);
+                Singleton.Instance.ShowElapsedTime(elapsedTimeTotal);
+                repository.Insert(sizex, elapsedTimeTotal);
+            }
+            
+
+            foreach (int sizex in sizes)
+            {
+                stopWatch.Start();
+                program.ExecuteCountingSort(sizex);
+                stopWatch.Stop();
                 TimeSpan ts = stopWatch.Elapsed;
                 string elapsedTime = String.Format("{0:00}:{1:00}:{2:00}:{3:00}", ts.Hours, ts.Minutes, ts.Seconds, ts.Milliseconds / 10);
                 Singleton.Instance.ShowElapsedTime(elapsedTime);
-                repository.Insert(sizex, elapsedTime);
+                repository.InsertData2("Counting Sort", sizex, elapsedTime);
+
+            }
+
+            foreach (int sizex in sizes)
+            {
+                stopWatch.Start();
+                program.ExecuteInsertionSort(sizex);
+                stopWatch.Stop();
+                TimeSpan ts = stopWatch.Elapsed;
+                string elapsedTime = String.Format("{0:00}:{1:00}:{2:00}:{3:00}", ts.Hours, ts.Minutes, ts.Seconds, ts.Milliseconds / 10);
+                Singleton.Instance.ShowElapsedTime(elapsedTime);
+                repository.InsertData2("Insertion Sort", sizex, elapsedTime);
+
+            }
+
+            foreach (int sizex in sizes)
+            {
+                stopWatch.Start();
+                program.ExecuteQuickSort(sizex);
+                stopWatch.Stop();
+                TimeSpan ts = stopWatch.Elapsed;
+                string elapsedTime = String.Format("{0:00}:{1:00}:{2:00}:{3:00}", ts.Hours, ts.Minutes, ts.Seconds, ts.Milliseconds / 10);
+                Singleton.Instance.ShowElapsedTime(elapsedTime);
+                repository.InsertData2("Quick Sort", sizex, elapsedTime);
+
+            }
+
+            foreach (int sizex in sizes)
+            {
+                stopWatch.Start();
+                program.ExecuteMargeSort(sizex);
+                stopWatch.Stop();
+                TimeSpan ts = stopWatch.Elapsed;
+                string elapsedTime = String.Format("{0:00}:{1:00}:{2:00}:{3:00}", ts.Hours, ts.Minutes, ts.Seconds, ts.Milliseconds / 10);
+                Singleton.Instance.ShowElapsedTime(elapsedTime);
+                repository.InsertData2("Marge Sort", sizex, elapsedTime);
+
+            }
+            foreach (int sizex in sizes)
+            {
+                stopWatch.Start();
+                program.ExecuteShellSort(sizex);
+                stopWatch.Stop();
+                TimeSpan ts = stopWatch.Elapsed;
+                string elapsedTime = String.Format("{0:00}:{1:00}:{2:00}:{3:00}", ts.Hours, ts.Minutes, ts.Seconds, ts.Milliseconds / 10);
+                Singleton.Instance.ShowElapsedTime(elapsedTime);
+                repository.InsertData2("Shell Sort", sizex, elapsedTime);
 
             }
             Console.ReadKey();

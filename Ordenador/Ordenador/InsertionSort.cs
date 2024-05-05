@@ -10,11 +10,11 @@ namespace Ordenador
     {
         public void Execute(int[] array)
         {
-            SortArray(array, array.Length);
-            /*foreach (int i in SortArray(array, array.Length))
+            //SortArray(array, array.Length);
+            foreach (int i in SortArray(array, array.Length))
             {
                 Console.WriteLine(i);
-            }*/
+            }
         }
         public int[] SortArray(int[] array, int length)
         {
