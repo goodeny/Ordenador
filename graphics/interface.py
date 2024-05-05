@@ -89,7 +89,7 @@ class Interface:
                         bg='#363346')
             self.label.place(x=170, y=25)
             self.button_specify = Button(self.labelgeral, 
-                        text="Specify",
+                        text="Expandir",
                         activebackground="#363346",
                         fg='white',
                         bd=0,
