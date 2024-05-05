@@ -60,6 +60,21 @@ class Database:
         else:
             print("Conexão não estabelecida.")
             return None
+    
+    def getAllData2(self):
+        if self.connection:
+            try:
+                cursor = self.connection.cursor()
+                cursor.execute("SELECT * FROM Data2")
+                getAll = cursor.fetchall()
+                cursor.close()
+                return getAll
+            except mysql.connector.Error as e:
+                print(f"Erro ao obter os tempos: {e}")
+                return None
+        else:
+            print("Conexão não estabelecida.")
+            return None
         
     def separete_data(self):
         self.database = Database()
@@ -70,6 +85,21 @@ class Database:
         for j in alldata:
             datac.append(j)
             if len(datac) == 5:
+                data.append(datac)
+                datac = []
+        if datac:  
+            data.append(datac)
+        return data
+
+    def separete_data2(self):
+        self.database = Database()
+        self.database.Connect()
+        alldata = self.database.getAllData2()
+        data = []
+        datac = []
+        for j in alldata:
+            datac.append(j)
+            if len(datac) == 25:
                 data.append(datac)
                 datac = []
         if datac:  

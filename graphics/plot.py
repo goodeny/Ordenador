@@ -44,3 +44,38 @@ class Program:
                 self.canvas_widget.draw()
         except:
             pass
+
+    def plot_graph2(self, canvas, size, time):
+        canvas.delete("all")
+        canvas_width = canvas.winfo_width()
+        canvas_height = canvas.winfo_height()
+        d_time = time
+        d_size = []
+
+        if self.figure is not None:
+            self.figure.clear()
+        
+        for i in size:
+            d_size.append(str(i))
+        
+        time = d_time
+        size = d_size
+
+        figsize = (canvas_width / 65, canvas_height / 100)
+
+        if self.figure is None:
+            self.figure = Figure(figsize=figsize, dpi=100)
+            plot = self.figure.add_subplot(111)
+        else:
+            plot = self.figure.add_subplot(111)
+
+        plot.plot(size, time)
+        try:
+            if self.canvas_widget is None:
+                self.canvas_widget = FigureCanvasTkAgg(self.figure, master=canvas)
+                self.canvas_widget.draw()
+                self.canvas_widget.get_tk_widget().pack(side='top', fill='both', expand=1)
+            else:
+                self.canvas_widget.draw()
+        except:
+            pass

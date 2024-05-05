@@ -11,3 +11,8 @@ class Detalhe:
         self.db = Database()
         self.db.Connect()
         return self.db.separete_data()[id]
+    
+    def getInformation2(self, id):
+        self.db = Database()
+        self.db.Connect()
+        return self.db.separete_data2()[id]
